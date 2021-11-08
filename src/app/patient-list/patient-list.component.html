@@ -1,15 +1,38 @@
-<div class="container">
-  <div class="card p-4 m-2 singleList" *ngFor="let record of patientList">
-    {{ record.userName }} <br />
-    Status:- {{ record.status }} <br />
-    Date :- {{ record.created | date }}
-    <div *ngFor="let item of record.diagnosis">
-      <div class="container">
-        Issue -
-        <br />Name - {{ item.Issue.Name }} <br />Accuracy -
-        {{ item.Issue.Accuracy }} <br />Icd - {{ item.Issue.Icd }} <br />IcdName
-        - {{ item.Issue.IcdName }} <br />ProfName - {{ item.Issue.ProfName }}
-        <br />
+<div id="accordion">
+  <div class="card" *ngFor="let record of patientList; let i = index">
+    <div class="card-header" id="patient{{ i }}">
+      <h5 class="mb-0">
+        <button
+          class="btn btn-link"
+          data-toggle="collapse"
+          data-target="#collapseOne{{ i }}"
+          aria-expanded="true"
+          aria-controls="collapseOne{{ i }}"
+        >
+          {{ record.userName }}
+        </button>
+      </h5>
+    </div>
+
+    <div
+      id="collapseOne{{ i }}"
+      class="collapse show"
+      aria-labelledby="patient{{ i }}"
+      data-parent="#accordion"
+    >
+      <div class="card-body">
+        Status:- {{ record.status }} <br />
+        Date :- {{ record.created | date }}
+        <div *ngFor="let item of record.diagnosis">
+          <div class="container">
+            Issue -
+            <br />Name - {{ item.Issue.Name }} <br />Accuracy -
+            {{ item.Issue.Accuracy }} <br />Icd - {{ item.Issue.Icd }}
+            <br />IcdName - {{ item.Issue.IcdName }} <br />ProfName -
+            {{ item.Issue.ProfName }}
+            <br />
+          </div>
+        </div>
       </div>
     </div>
   </div>

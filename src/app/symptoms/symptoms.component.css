@@ -3,9 +3,9 @@
 }
 .filter {
   position: absolute;
-  top: 45px;
+  top: 20vh;
   left: 45px;
-  min-width: 200px;
+  min-width: 30vw;
   /* height: 500px; */
   z-index: 3;
   /* background-color: rgb(233, 231, 229); */
@@ -13,7 +13,7 @@
   margin: 1px;
 }
 .tip {
-  background-color: rgb(188, 217, 243);
+  background-color: rgb(214, 226, 247);
   padding: 5px;
   margin: 0px;
 }

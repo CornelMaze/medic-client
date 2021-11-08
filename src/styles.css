@@ -1,2 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
+body {
+  font-family: Roboto, Georgia, "Times New Roman", Times, serif;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("./assets/background-1.jpg") center/cover fixed no-repeat;
+}

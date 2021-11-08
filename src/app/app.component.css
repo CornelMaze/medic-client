@@ -1,40 +1,27 @@
-/* .nav-link {
-  color: #ddd !important;
+.content {
+  min-height: 100vh;
+  position: relative;
 }
-.navbar-brand {
-  color: #ddd !important;
-} */
-/* input {
-  text-transform: lowercase;
+.main {
+  min-height: 100vh;
 }
-div > input::first-letter {
-  text-transform: capitalize;
-} */
+.footer {
+  min-height: 5vh;
+  position: fixed;
+  padding: 10px;
+  bottom: 0px;
+  background-color: rgb(201, 198, 195);
+  left: 0;
+  width: 100vw;
+}
+
 button {
   margin: 5px;
 }
-/* .main-content {
-  position: relative;
-  min-height: 75vh;
-} */
 .filter {
   position: relative;
   z-index: 2;
-  /* height: 200px; */
-  /* top: 0px; */
-  /* left: 0px; */
-  /* width: auto; */
 }
-/* .tip {
-   display: inline-block;
-  position: absolute;
-  background: transparent;
-  z-index: 2;
-  color: silver;
-  padding: 2px;
-  margin: 2px;
-  height: 20px;
-} */
 .tip:hover {
   background-color: grey;
 }

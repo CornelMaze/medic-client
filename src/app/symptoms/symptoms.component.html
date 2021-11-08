@@ -1,10 +1,11 @@
-<div>
-  <div class="host">
+<div class="">
+  <div class="host container">
     <form>
-      <div class="form-group m-5">
+      <div class="form-group m-5 jumbotron text-center">
+        <h2>Enter symptoms to get the diagnosis</h2>
         <input
           class="form-control"
-          placeholder="Enter Symtoms"
+          placeholder="Enter Symptoms"
           type="text"
           name="symptoms"
           [(ngModel)]="symptoms"
@@ -20,35 +21,45 @@
         </div>
       </div>
     </form>
-
-    <div class="container" *ngIf="display">
-      <div *ngFor="let item of diagnosis">
-        Issue -
-        <br />Name - {{ item.Issue.Name }} <br />Accuracy -
-        {{ item.Issue.Accuracy }} <br />Icd - {{ item.Issue.Icd }} <br />IcdName
-        - {{ item.Issue.IcdName }} <br />ProfName - {{ item.Issue.ProfName }}
-        <br />Ranking - {{ item.Issue.Ranking }}
-        <br />
-        <span *ngFor="let result of item.Specialisation">
-          Specialisation -
-          <br />
-          Name - {{ result.Name }}
-        </span>
-        <div class="form-check">
-          <label #id for="" hidden class="form-check-label">{{
-            item.Issue.ID
-          }}</label>
-
-          <input
-            type="checkbox"
-            name="record"
-            (click)="addDiagnosis(id)"
-            class="form-check-input"
-          /><label for="" class="form-check-label"
-            >Add Diagnosis to Patient's Record</label
-          >
+    <div id="accordion" *ngIf="display">
+      <div class="card" *ngFor="let item of diagnosis; let i = index">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">Possible Issue - {{ i + 1 }}</h5>
         </div>
-        <hr />
+
+        <div
+          id="collapseOne"
+          class="collapse show"
+          aria-labelledby="headingOne"
+          data-parent="#accordion"
+        >
+          <div class="card-body h4">
+            <br />Name - {{ item.Issue.Name }} <br />Accuracy -
+            {{ item.Issue.Accuracy }} <br />Icd - {{ item.Issue.Icd }}
+            <br />IcdName - {{ item.Issue.IcdName }} <br />ProfName -
+            {{ item.Issue.ProfName }} <br />Ranking - {{ item.Issue.Ranking }}
+            <br />
+            <span *ngFor="let result of item.Specialisation">
+              Specialisation -
+              <br />
+              Name - {{ result.Name }}
+            </span>
+            <div class="form-check">
+              <label #id for="" hidden class="form-check-label">{{
+                item.Issue.ID
+              }}</label>
+              <input
+                type="checkbox"
+                name="record"
+                (click)="addDiagnosis(id)"
+                class="form-check-input p-4"
+              /><label for="" class="form-check-label"
+                >Add Diagnosis to Patient's Record</label
+              >
+            </div>
+            <hr />
+          </div>
+        </div>
       </div>
     </div>
     <div class="container alert alert-danger text-center" *ngIf="newUser">

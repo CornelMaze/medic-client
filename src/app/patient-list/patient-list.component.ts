@@ -17,7 +17,7 @@ export class PatientListComponent implements OnInit {
         let diagnosis = JSON.parse(item.diagnosis);
         return { ...item, diagnosis };
       });
-      console.log(this.patientList);
+      // console.log(this.patientList);
     });
   }
 }

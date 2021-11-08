@@ -1,0 +1,111 @@
+<div>
+  <div class="host">
+    <form>
+      <div class="form-group m-5">
+        <input
+          class="form-control"
+          placeholder="Enter Symtoms"
+          type="text"
+          name="symptoms"
+          [(ngModel)]="symptoms"
+          (ngModelChange)="searchData(symptoms)"
+        />
+        <small class="form-text text-muted"
+          >We'll help you get relevant symptoms</small
+        >
+        <div class="text-center">
+          <button class="btn btn-primary center" (click)="getSymptoms()">
+            Get Diagnosis
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="container" *ngIf="display">
+      <div *ngFor="let item of diagnosis">
+        Issue -
+        <br />Name - {{ item.Issue.Name }} <br />Accuracy -
+        {{ item.Issue.Accuracy }} <br />Icd - {{ item.Issue.Icd }} <br />IcdName
+        - {{ item.Issue.IcdName }} <br />ProfName - {{ item.Issue.ProfName }}
+        <br />Ranking - {{ item.Issue.Ranking }}
+        <br />
+        <span *ngFor="let result of item.Specialisation">
+          Specialisation -
+          <br />
+          Name - {{ result.Name }}
+        </span>
+        <div class="form-check">
+          <label #id for="" hidden class="form-check-label">{{
+            item.Issue.ID
+          }}</label>
+
+          <input
+            type="checkbox"
+            name="record"
+            (click)="addDiagnosis(id)"
+            class="form-check-input"
+          /><label for="" class="form-check-label"
+            >Add Diagnosis to Patient's Record</label
+          >
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="container alert alert-danger text-center" *ngIf="newUser">
+      {{ message }}
+    </div>
+    <div class="container">
+      <div class="card mb-5">
+        <div class="card-header">Patient's Details</div>
+
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="patient-name">Patient's Name</label>
+              <input
+                type="text"
+                id="patient-name"
+                name="patient-name"
+                [(ngModel)]="patientName"
+                class="form-control"
+              />
+            </div>
+            <div class="form-check" *ngIf="patientRecord.length > 0">
+              <input
+                type="radio"
+                name="status"
+                class="form-check-input"
+                id="valid"
+                value="valid"
+                [(ngModel)]="status"
+              /><label for="valid" class="form-check-label">Valid</label>
+            </div>
+            <div class="form-check" *ngIf="patientRecord.length > 0">
+              <input
+                type="radio"
+                name="status"
+                class="form-check-input"
+                id="invalid"
+                [(ngModel)]="status"
+                value="invalid"
+              /><label for="invalid" class="form-check-label">Invalid</label>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary" (click)="createRecord()">
+                Save Record
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="filter">
+      <div *ngFor="let tip of filteredData">
+        <div class="tip" #tipValue (click)="getValue(tipValue)">
+          {{ tip.Name }}
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>

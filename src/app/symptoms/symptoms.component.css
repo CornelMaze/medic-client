@@ -1,0 +1,22 @@
+.host {
+  position: relative;
+}
+.filter {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  min-width: 200px;
+  /* height: 500px; */
+  z-index: 3;
+  /* background-color: rgb(233, 231, 229); */
+  padding: 0px;
+  margin: 1px;
+}
+.tip {
+  background-color: rgb(188, 217, 243);
+  padding: 5px;
+  margin: 0px;
+}
+.tip:hover {
+  background-color: rgb(222, 229, 235);
+}

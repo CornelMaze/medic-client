@@ -1,0 +1,40 @@
+/* .nav-link {
+  color: #ddd !important;
+}
+.navbar-brand {
+  color: #ddd !important;
+} */
+/* input {
+  text-transform: lowercase;
+}
+div > input::first-letter {
+  text-transform: capitalize;
+} */
+button {
+  margin: 5px;
+}
+/* .main-content {
+  position: relative;
+  min-height: 75vh;
+} */
+.filter {
+  position: relative;
+  z-index: 2;
+  /* height: 200px; */
+  /* top: 0px; */
+  /* left: 0px; */
+  /* width: auto; */
+}
+/* .tip {
+   display: inline-block;
+  position: absolute;
+  background: transparent;
+  z-index: 2;
+  color: silver;
+  padding: 2px;
+  margin: 2px;
+  height: 20px;
+} */
+.tip:hover {
+  background-color: grey;
+}

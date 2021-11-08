@@ -1,0 +1,6 @@
+.singleList {
+  background-color: rgb(235, 220, 220);
+}
+.singleList:hover {
+  background-color: silver;
+}

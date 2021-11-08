@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card p-4 m-2 singleList" *ngFor="let record of patientList">
+    {{ record.userName }} <br />
+    Status:- {{ record.status }} <br />
+    Date :- {{ record.created | date }}
+    <div *ngFor="let item of record.diagnosis">
+      <div class="container">
+        Issue -
+        <br />Name - {{ item.Issue.Name }} <br />Accuracy -
+        {{ item.Issue.Accuracy }} <br />Icd - {{ item.Issue.Icd }} <br />IcdName
+        - {{ item.Issue.IcdName }} <br />ProfName - {{ item.Issue.ProfName }}
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
